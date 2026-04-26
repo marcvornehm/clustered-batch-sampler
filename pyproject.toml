@@ -1,0 +1,54 @@
+[project]
+name = "clustered-batch-sampler"
+version = "0.1.0"
+authors = [
+    { name = "Marc Vornehm", email = "mail@mvornehm.de" }
+]
+description = "A PyTorch BatchSampler that produces batches from samples clustered by keys."
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = ["pytorch", "sampler", "batch-sampler", "distributed-training", "dataloader"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Operating System :: OS Independent",
+]
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "torch>=2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest",
+    "ruff",
+    "twine",
+]
+
+[project.urls]
+Homepage = "https://github.com/marcvornehm/clustered-batch-sampler"
+Issues = "https://github.com/marcvornehm/clustered-batch-sampler/issues"
+Repository = "https://github.com/marcvornehm/clustered-batch-sampler"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+
+[tool.ruff]
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[build-system]
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
