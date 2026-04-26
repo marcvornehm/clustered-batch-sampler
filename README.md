@@ -47,6 +47,23 @@ dataset = RandomImageDataset(num_samples=100)
 key_fn = lambda x: x.shape[-2:]
 sampler = ClusteredBatchSampler(dataset, key=key_fn, batch_size=16)
 dataloader = DataLoader(dataset, batch_sampler=sampler)
+
+for b in dataloader:
+    print(b.shape)
+```
+
+Output:
+```
+torch.Size([16, 3, 256, 256])
+torch.Size([16, 3, 192, 192])
+torch.Size([16, 3, 288, 288])
+torch.Size([4, 3, 256, 256])
+torch.Size([16, 3, 224, 224])
+torch.Size([16, 3, 320, 320])
+torch.Size([4, 3, 192, 192])
+torch.Size([4, 3, 320, 320])
+torch.Size([4, 3, 288, 288])
+torch.Size([4, 3, 224, 224])
 ```
 
 ### Using Explicit Keys
